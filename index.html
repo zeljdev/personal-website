@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <link href="css/icon.css" rel="stylesheet" type="text/css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="zv navbar">
+            <ul>
+                <li id="Skills">Skills<i class="i icon star"></i></li>
+                <li id="Exp" class="disabled">Experience<i class="i icon lock"></i></li>
+                <li id="Cert">Certifications<i class="i icon cert"></i></li>
+                <li><a href="http://www.github.com" style="color:white;text-decoration: none;">Github<i class="i icon github"></i></a></li>
+            </ul>
+        </div>
+
+        
+        <div id="zv-wrapper">
+            <div id="Skills-Window" class="Skills window">
+                <div id='skillsWinHandle' class="window-head">
+                    <div class="window-head-title">Skills</div>
+                    <button id="ExitBtn" class="Skills window-head-btn">X</button>
+                </div>
+                <div class="window-body">
+                    <b>1 Star = Novice</b><br>
+                    <b>5 Stars = Harry Potter</b>
+                    <br><br>
+                    <b>Languages:</b><br>
+                    <b>C & C++ <span style="color: #feca57;">✯</span>✰✰✰✰</b><br>
+                    <b>Crystal <span style="color: #feca57;">✯</span>✰✰✰✰</b><br>
+                    <b>C# <span style="color: #feca57;">✯✯</span>✰✰✰</b><br>
+                    <b>VBA <span style="color: #feca57;">✯</span>✰✰✰✰</b><br>
+                    <b>Java <span style="color: #feca57;">✯✯✯</span>✰✰</b><br>
+                    <b>Javascript <span style="color: #feca57;">✯✯</span>✰✰✰</b><br>
+                    <br>
+                    <b>HTML <span style="color: #feca57;">✯✯✯✯✯</span></b><br>
+                    <b>CSS3 <span style="color: #feca57;">✯✯✯</span>✰✰</b><br>
+                    <br>
+                    <b>Databases:</b><br>
+                    <b>MongoDB <span style="color: #feca57;">✯✯✯</span>✰✰</b><br>
+                    <b>MySQL <span style="color: #feca57;">✯✯✯</span>✰✰</b><br>
+                    <b>Redis <span style="color: #feca57;">✯✯</span>✰✰✰</b><br>
+                    <b>Firestore <span style="color: #feca57;">✯</span>✰✰✰✰</b><br>
+                    <b>Postgres <span style="color: #feca57;">✯</span>✰✰✰✰</b><br>
+                    <br>
+                    <b>Web Servers:</b><br>
+                    <b>Nginx <span style="color: #feca57;">✯✯✯</span>✰✰</b><br>
+                    <b>Apache <span style="color: #feca57;">✯</span>✰✰✰✰</b><br>
+                    <br>
+                    <b>Linux:</b><br>
+                    <b>Centos <span style="color: #feca57;">✯✯</span>✰✰✰</b><br>
+                    <b>Ubuntu <span style="color: #feca57;">✯✯</span>✰✰✰</b><br>
+                    <br>
+                    <b>Programs:</b><br>
+                    <b>Photoshop <span style="color: #feca57;">✯✯✯</span>✰✰</b><br>
+                    <b>Premiere Pro <span style="color: #feca57;">✯✯✯</span>✰✰</b><br><br>
+                </div>
+            </div>
+
+            <div id="zv-wrapper">
+                <div id="Cert-Window" class="Cert window">
+                    <div id='CertWinHandle' class="window-head">
+                        <div class="window-head-title">Certifications</div>
+                        <button id="ExitBtn" class="Cert window-head-btn">X</button>
+                    </div>
+                    <div class="window-body">
+                        <b>Certifications:</b><br><br>
+                        <b>Visual Communication using Adobe Photoshop CS6</b>
+                        <p>2017</p>
+                        <b>Video Communication using Adobe Premiere Pro CS6</b>
+                        <p>2016</p>
+                    </div>
+                </div>
+            </div>  
+
+        </div>      
+        <script>
+
+            zv_Windows = ({
+                0 : "Skills",
+                1 : "Exp",
+                2 : "Cert"
+            });
+            
+            function hideAllWindows(){
+                $.each(zv_Windows, function(key, value) {
+                    $("." + value).hide();
+                });
+            }
+
+            hideAllWindows();
+
+            $("li").click(function() {
+                
+               $("." + this.id).show();
+            });
+
+            $("button").click(function() {
+                $("." + this.classList[0]).hide();
+            });
+
+             $( "#Cert-Window" ).draggable({containment: "#zv-wrapper", handle: "#CertWinHandle"})
+             $( "#Skills-Window" ).draggable({containment: "#zv-wrapper", handle: "#skillsWinHandle"})
+        </script>
+    </body>
+</html>
